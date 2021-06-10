@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ApplicationDevelopment.Models.Category>
+@{
+  ViewBag.Title = "Index";
+}
+
+<h2>Category List</h2>
+
+@if (User.IsInRole("Staff"))
+{
+<div class="form-group">
+  @Html.ActionLink(
+    "Create a new Category",
+    "Create",
+    "Categories",
+    new { @class = "btn btn-primary" }
+    )
+</div>
+}
+<div class="row">
+  <div class="col-md-4">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Category Name</th>
+          @if (User.IsInRole("Staff"))
+          {
+            <th scope="col">Actions</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var category in Model)
+        {
+          <tr>
+            <th scope="row">@category.Id</th>
+            <td>@category.Name</td>
+            @if (User.IsInRole("Staff"))
+            {
+              <td>
+                @Html.ActionLink("Details", // <-- Link text
+                       "Details", // <-- Action Method Name
+                       "Categories", // <-- Controller Name
+                       new { id = category.Id }, // <-- Route value
+                       new { @class = "btn btn-info" } // <-- htmlArguments
+                       )
+                @Html.ActionLink("Edit", // <-- Link text
+                                 "Edit", // <-- Action Method Name
+                                 "Categories", // <-- Controller Name
+                                 new { id = category.Id }, // <-- Route value
+                                 new { @class = "btn btn-default" } // <-- htmlArguments
+                               )
+
+                @Html.ActionLink("Delete", // <-- Link text
+                                 "Delete", // <-- Action Method Name
+                                 "Categories", // <-- Controller Name
+                                 new { id = category.Id }, // <-- Route value
+                                 new { @class = "btn btn-danger" } // <-- htmlArguments
+                               )
+              </td>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
