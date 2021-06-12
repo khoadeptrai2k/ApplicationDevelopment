@@ -171,6 +171,7 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ManageUsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,6 +187,10 @@
     <Compile Include="Migrations\202106101322376_CategoryCRUD.Designer.cs">
       <DependentUpon>202106101322376_CategoryCRUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106120430085_RegisterUser.cs" />
+    <Compile Include="Migrations\202106120430085_RegisterUser.Designer.cs">
+      <DependentUpon>202106120430085_RegisterUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -194,6 +199,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\UsersInRole.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -255,6 +261,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ManageUsers\" />
     <Folder Include="Views\UserInfos\" />
   </ItemGroup>
   <ItemGroup>
@@ -279,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106101322376_CategoryCRUD.resx">
       <DependentUpon>202106101322376_CategoryCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106120430085_RegisterUser.resx">
+      <DependentUpon>202106120430085_RegisterUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

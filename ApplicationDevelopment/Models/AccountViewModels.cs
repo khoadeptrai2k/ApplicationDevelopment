@@ -65,12 +65,16 @@ namespace ApplicationDevelopment.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "UserRoles")]
-        public string UserRoles { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }        
         
         [Required]
-        [Display(Name = "UserName")]
-        public string UserName { get; set; }
+        [Display(Name = "FullName")]
+        public string FullName { get; set; }
+
+        [Required]
+        [Display(Name = "UserRoles")]
+        public string UserRoles { get; set; }
 
         [Required]
         [EmailAddress]

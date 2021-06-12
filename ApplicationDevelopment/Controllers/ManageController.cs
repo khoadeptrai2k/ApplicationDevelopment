@@ -15,7 +15,6 @@ namespace ApplicationDevelopment.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
         public ManageController()
         {
         }

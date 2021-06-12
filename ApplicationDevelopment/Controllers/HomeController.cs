@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ApplicationDevelopment.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +11,11 @@ namespace ApplicationDevelopment.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext context;
+        public HomeController()
+        {
+            context = new ApplicationDbContext();
+        }
         public ActionResult Index()
         {
             return View();
@@ -15,9 +23,10 @@ namespace ApplicationDevelopment.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            ViewBag.Name = currentUser.Name;
+            return View(currentUser);
         }
 
         public ActionResult Contact()
