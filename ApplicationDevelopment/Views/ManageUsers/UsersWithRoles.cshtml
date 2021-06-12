@@ -1,0 +1,46 @@
+﻿@model List<ApplicationDevelopment.Models.ApplicationUser>
+@{
+    ViewBag.Title = "UsersWithRoles";
+}
+@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+{ 
+    <p>
+        <a onclick="window.location='@Url.Action("Register","Account")'" class="btn btn-danger">Create New</a>
+    </p>
+}
+<h3>Account</h3>
+<div class="panel-body">
+    <table class="table table-striped" id="UsersWithRoles">
+        <thead>
+            <tr>
+                <th>UserName</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                </tr>
+            }
+    </table>
+</div>
+
+@section scripts{
+    <script>
+        $(function (){
+            $('#UsersWithRoles').DataTable({
+                "paging": true,
+                "lengthchange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": true
+                    });        
+        });
+    </script>
+    }
+@Html.ActionLink("Back","Index","Home")
+
