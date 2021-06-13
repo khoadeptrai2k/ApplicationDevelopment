@@ -191,12 +191,31 @@
     <Compile Include="Migrations\202106120430085_RegisterUser.Designer.cs">
       <DependentUpon>202106120430085_RegisterUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106122307258_updateregister.cs" />
+    <Compile Include="Migrations\202106122307258_updateregister.Designer.cs">
+      <DependentUpon>202106122307258_updateregister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106130047196_staff,trainer,trainee model.cs" />
+    <Compile Include="Migrations\202106130047196_staff,trainer,trainee model.Designer.cs">
+      <DependentUpon>202106130047196_staff,trainer,trainee model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106130314397_loginwithUserName.cs" />
+    <Compile Include="Migrations\202106130314397_loginwithUserName.Designer.cs">
+      <DependentUpon>202106130314397_loginwithUserName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106130443400_CRUDuser.cs" />
+    <Compile Include="Migrations\202106130443400_CRUDuser.Designer.cs">
+      <DependentUpon>202106130443400_CRUDuser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\Trainee.cs" />
+    <Compile Include="Models\Trainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\UsersInRole.cs" />
@@ -257,6 +276,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\ManageUsers\UsersWithRoles.cshtml" />
+    <Content Include="Views\ManageUsers\Edit.cshtml" />
+    <Content Include="Views\ManageUsers\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,6 +308,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106120430085_RegisterUser.resx">
       <DependentUpon>202106120430085_RegisterUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106122307258_updateregister.resx">
+      <DependentUpon>202106122307258_updateregister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106130047196_staff,trainer,trainee model.resx">
+      <DependentUpon>202106130047196_staff,trainer,trainee model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106130314397_loginwithUserName.resx">
+      <DependentUpon>202106130314397_loginwithUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106130443400_CRUDuser.resx">
+      <DependentUpon>202106130443400_CRUDuser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

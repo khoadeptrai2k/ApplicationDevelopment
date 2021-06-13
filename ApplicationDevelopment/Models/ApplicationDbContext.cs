@@ -14,6 +14,9 @@ namespace ApplicationDevelopment.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Trainer> Trainers { get; set; }
+        public DbSet<Trainee> Trainees { get; set; }
         public DbSet<Category> Categories { get; set; }
 
         public static ApplicationDbContext Create()

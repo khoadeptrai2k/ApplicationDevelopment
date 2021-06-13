@@ -17,17 +17,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <div class="navbar-collapse collapse">
-                   @if (Request.IsAuthenticated && User.IsInRole("Admin")) 
-                   {
-                       <ul class="nav vavbar-nav">
-                           <li>@Html.ActionLink("Home","Index","Home")</li>
-                           <li>@Html.ActionLink("Roles","UsersWithRoles","ManageUsers")</li>
+                @Html.ActionLink("Management", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav vavbar-nav">
 
-                       </ul>
-                   }
-                   @Html.Partial("_LoginPartial")
-               </div>
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("ManageUsers", "UsersWithRoles", "ManageUsers")</li>
+                            <li></li>
+                    }
+                </ul>
+
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
