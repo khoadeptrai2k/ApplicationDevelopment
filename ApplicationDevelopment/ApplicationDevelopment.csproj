@@ -207,6 +207,10 @@
     <Compile Include="Migrations\202106130443400_CRUDuser.Designer.cs">
       <DependentUpon>202106130443400_CRUDuser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106131933062_resetpass.cs" />
+    <Compile Include="Migrations\202106131933062_resetpass.Designer.cs">
+      <DependentUpon>202106131933062_resetpass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -218,6 +222,7 @@
     <Compile Include="Models\Trainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\AdminChangePassViewModel.cs" />
     <Compile Include="ViewModel\UsersInRole.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -278,10 +283,10 @@
     <Content Include="Views\ManageUsers\UsersWithRoles.cshtml" />
     <Content Include="Views\ManageUsers\Edit.cshtml" />
     <Content Include="Views\ManageUsers\Details.cshtml" />
+    <Content Include="Views\ManageUsers\ChangeUserPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\UserInfos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -320,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106130443400_CRUDuser.resx">
       <DependentUpon>202106130443400_CRUDuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106131933062_resetpass.resx">
+      <DependentUpon>202106131933062_resetpass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

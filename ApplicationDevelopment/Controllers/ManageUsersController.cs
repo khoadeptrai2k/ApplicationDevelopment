@@ -1,11 +1,13 @@
 ﻿using ApplicationDevelopment.Models;
 using ApplicationDevelopment.ViewModel;
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -24,6 +26,7 @@ namespace ApplicationDevelopment.Controllers
         // GET: ManageUsers
         [HttpGet]
         [Authorize(Roles = "Admin")]
+
         public ActionResult UsersWithRoles()
         {
             //declare variable usersWithRoles using the (FROM-IN) function
@@ -125,6 +128,52 @@ namespace ApplicationDevelopment.Controllers
             }
 
             return View(usersInDb);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult ResetPassword(string id)
+        {
+            // Declare the userId variable of Current.User.Identity and access the Id field through GetUserId
+            var AccountInDB = context.Users.SingleOrDefault(p => p.Id == id);
+
+            if (AccountInDB == null)
+            {
+                return HttpNotFound();
+            }
+            if (AccountInDB.Id != null)
+            {
+                // userManager by managing new users, bringing new data
+                UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
+                // Delete current password of userManager
+                userManager.RemovePassword(AccountInDB.Id);
+                // Replace new password "Tukhoa@123" for userManager
+                String newPassword = "Tukhoa@123";
+                userManager.AddPassword(AccountInDB.Id, newPassword);
+            }
+            context.SaveChanges();
+            return RedirectToAction("UsersWithRoles", "ManageUsers");
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult ChangeUserPassword(string id)
+        {
+            var user = context.Users.SingleOrDefault(t => t.Id == id);
+            var ChangePass = new AdminChangePassViewModel()
+            {
+                UserId = user.Id,
+                UserName = user.UserName,
+            };
+            return View(ChangePass);
+        }
+        [HttpPost]
+        public async Task<ActionResult> ChangeUserPassword(AdminChangePassViewModel model)
+        {
+            var user = context.Users.Where(t => t.Id == model.UserId).First();
+            if (user.PasswordHash != null)
+            {
+                await _userManager.RemovePasswordAsync(user.Id);
+            }
+            await _userManager.AddPasswordAsync(user.Id, model.NewPassword);
+            return RedirectToAction("UsersWithRoles", "ManageUsers");
         }
     }
 }

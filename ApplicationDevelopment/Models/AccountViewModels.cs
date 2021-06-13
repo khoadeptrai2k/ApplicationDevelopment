@@ -111,6 +111,7 @@ namespace ApplicationDevelopment.Models
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }
+        public string Id { get; internal set; }
     }
 
     public class ForgotPasswordViewModel

@@ -14,19 +14,23 @@
         <thead>
             <tr>
                 <th>UserName</th>
+                <th>Name</th>
                 <th>Email</th>
                 <th>Edit</th>   
                 <th>Delete</th>   
+                <th>ChangePass</th>
             </tr>
         </thead>
         @foreach (var user in Model)
             {
                 <tr>
+                    <td>@user.UserName</td>
                     <td>@user.Name</td>
                     <td>@user.Email</td>
                     <td>@Html.ActionLink("Edit", "Edit", new { id = user.Id })</td>
                     <td>@Html.ActionLink("Delete", "Delete", new { id = user.Id })</td>
-
+                    <td>@Html.ActionLink("ChangePass","ChangeUserPassword",new { id = user.Id })</td>
+                                                                          
                 </tr>
             }
     </table>
