@@ -15,7 +15,8 @@
             <tr>
                 <th>UserName</th>
                 <th>Email</th>
-                <th></th>   
+                <th>Edit</th>   
+                <th>Delete</th>   
             </tr>
         </thead>
         @foreach (var user in Model)
@@ -23,6 +24,9 @@
                 <tr>
                     <td>@user.Name</td>
                     <td>@user.Email</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = user.Id })</td>
+                    <td>@Html.ActionLink("Delete", "Delete", new { id = user.Id })</td>
+
                 </tr>
             }
     </table>

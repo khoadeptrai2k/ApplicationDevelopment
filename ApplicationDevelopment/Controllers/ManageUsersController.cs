@@ -49,7 +49,7 @@ namespace ApplicationDevelopment.Controllers
                                       Email = p.Emailaddress,
                                       Role = string.Join(",", p.RoleNames) //(join) Combine the selected value above to display
                                   });
-            var except_user = context.Users.Where(t => t.Id == "21482491-95b7-46f6-913c-adca4d4d84b4");
+            var except_user = context.Users.Where(t => t.Id == "95f5b8f0-972a-4ea3-b660-5b10a3e1d1d6");
             var user_in_role = context.Users.Except(except_user).ToList();
             return View(user_in_role);
         }

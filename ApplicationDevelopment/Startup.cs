@@ -29,15 +29,7 @@ namespace ApplicationDevelopment
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                 role.Name = "Admin";
                 roleManager.Create(role);
-                var user = new ApplicationUser();
-                user.UserName = "admin";
-                user.Email = "admin@gmail.com";
-                string userPWD = "Admin@123";
-                var chkUser = UserManager.Create(user, userPWD);
-                if (chkUser.Succeeded)
-                {
-                    var result1 = UserManager.AddToRole(user.Id, "Admin");
-                }
+
             }
             // creating Creating Staff role     
             if (!roleManager.RoleExists("Staff"))
