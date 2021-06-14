@@ -286,6 +286,7 @@
     <Content Include="Views\ManageUsers\Details.cshtml" />
     <Content Include="Views\ManageUsers\ChangeUserPassword.cshtml" />
     <Content Include="Views\StaffManageUsers\Index.cshtml" />
+    <Content Include="Views\StaffManageUsers\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

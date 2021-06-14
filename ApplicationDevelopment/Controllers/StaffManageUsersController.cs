@@ -1,5 +1,7 @@
 ﻿using ApplicationDevelopment.Models;
 using ApplicationDevelopment.ViewModel;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,5 +89,28 @@ namespace ApplicationDevelopment.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //Reset Password
+        [HttpGet]
+        [Authorize(Roles = "Staff")]
+        public ActionResult ResetPass(string id)
+        {
+            var AccountInDb = context.Users.SingleOrDefault(p => p.Id == id);
+            if (AccountInDb == null)
+            {
+                return HttpNotFound();
+            }
+            if (AccountInDb.Id !=null)
+            {
+                UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
+                userManager.RemovePassword(AccountInDb.Id);
+                String newPassword = "Tukhoa@123";
+                userManager.AddPassword(AccountInDb.Id, newPassword);
+            }
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        
+        }
+
     }
 }
