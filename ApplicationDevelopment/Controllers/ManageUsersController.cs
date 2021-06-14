@@ -24,6 +24,7 @@ namespace ApplicationDevelopment.Controllers
             _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
         }
         // GET: ManageUsers
+        // Get: Admin
         [HttpGet]
         [Authorize(Roles = "Admin")]
 
