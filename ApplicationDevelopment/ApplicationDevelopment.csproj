@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManageUsersController.cs" />
@@ -212,11 +213,20 @@
     <Compile Include="Migrations\202106131933062_resetpass.Designer.cs">
       <DependentUpon>202106131933062_resetpass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106142036598_Course.cs" />
+    <Compile Include="Migrations\202106142036598_Course.Designer.cs">
+      <DependentUpon>202106142036598_Course.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106151952524_descriptionCategory.cs" />
+    <Compile Include="Migrations\202106151952524_descriptionCategory.Designer.cs">
+      <DependentUpon>202106151952524_descriptionCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Course.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Trainee.cs" />
@@ -287,9 +297,11 @@
     <Content Include="Views\ManageUsers\ChangeUserPassword.cshtml" />
     <Content Include="Views\StaffManageUsers\Index.cshtml" />
     <Content Include="Views\StaffManageUsers\Edit.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Courses\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -331,6 +343,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106131933062_resetpass.resx">
       <DependentUpon>202106131933062_resetpass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106142036598_Course.resx">
+      <DependentUpon>202106142036598_Course.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106151952524_descriptionCategory.resx">
+      <DependentUpon>202106151952524_descriptionCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

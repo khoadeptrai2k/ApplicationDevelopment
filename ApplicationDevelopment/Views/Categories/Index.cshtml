@@ -21,11 +21,14 @@
     <table class="table">
       <thead class="thead-light">
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Category Name</th>
+          <th scope="col">Category Description</th>
           @if (User.IsInRole("Staff"))
           {
             <th scope="col">Actions</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Details</th>
           }
         </tr>
       </thead>

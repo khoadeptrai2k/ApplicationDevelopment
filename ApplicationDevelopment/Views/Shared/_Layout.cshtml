@@ -29,6 +29,11 @@
                             <li>@Html.ActionLink("ManageUsers", "UsersWithRoles", "ManageUsers")</li>
                             <li></li>
                     }
+                    @if (Request.IsAuthenticated && User.IsInRole("Staff"))
+                    {
+                            <li>@Html.ActionLink("StaffManageUsers","Index","StaffManageUsers")</li>
+                            <li>@Html.ActionLink("Categories","Index","Categories")</li>
+                    }
                 </ul>
 
                 @Html.Partial("_LoginPartial")

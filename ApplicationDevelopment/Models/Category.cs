@@ -16,5 +16,6 @@ namespace ApplicationDevelopment.Models
         [DisplayName("Category Name")]
         [Index("Name_Index", IsUnique = true)]
         public string Name { get; set; }
+        public string Description { get; set; }
     }
 }
