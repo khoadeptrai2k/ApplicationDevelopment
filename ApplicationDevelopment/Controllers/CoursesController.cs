@@ -1,4 +1,5 @@
 ﻿using ApplicationDevelopment.Models;
+using ApplicationDevelopment.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,40 +20,117 @@ namespace ApplicationDevelopment.Controllers
         [Authorize(Roles = "Staff")]
         public ActionResult Index()
         {
-            var categories = context.Categories.ToList();
-            return View(categories);
+            var courses = context.Courses.ToList();
+            return View(courses.ToList());
         }
 
+        //Create Course
         [HttpGet]
         [Authorize(Roles = "Staff")]
         public ActionResult Create()
         {
-            return View();
+            var viewModel = new CourseCategoryViewModel
+            {
+                Categories = context.Categories.ToList(),
+            };
+            return View(viewModel);
         }
         [HttpPost]
         [Authorize(Roles = "Staff")]
-        public ActionResult Create(Category model)
+        public ActionResult Create(Course course)
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View();
             }
-            var category = new Category
+            //check existed
+            if(context.Courses.Any(p=>p.Name==course.Name
+                                && p.CategoryId==course.CategoryId))
             {
-                Name = model.Name
+                return View("~/View/Courses/CheckExist.cshtml");
+            }
+            var newCourse = new Course
+            {
+                Name = course.Name,
+                CategoryId = course.CategoryId,
+            };
+            context.Courses.Add(newCourse);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        //Delete
+        [HttpGet]
+        [Authorize(Roles = "Staff")]
+        public ActionResult Delete(int id)
+        {
+            var courseInDb = context.Courses.SingleOrDefault(p => p.Id == id);
+            if(courseInDb==null)
+            {
+                return HttpNotFound();
+            }
+            context.Courses.Remove(courseInDb);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        //Edit
+        [HttpGet]
+        [Authorize(Roles = "Staff")]
+
+        public ActionResult Edit(int id)
+        {
+            var courseInDb = context.Courses.SingleOrDefault(p => p.Id == id);
+
+            if (courseInDb == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new CourseCategoryViewModel
+            {
+                Course = courseInDb,
+                Categories = context.Categories.ToList(),
             };
 
-            context.Categories.Add(category);
-            try
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Staff")]
+
+        public ActionResult Edit(Course course)
+        {
+            if (!ModelState.IsValid)
             {
-                context.SaveChanges();
+                return View();
             }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+
+            var courseInDb = context.Courses.SingleOrDefault(p => p.Id == course.Id);
+
+            if (courseInDb == null)
             {
-                ModelState.AddModelError("", "Category Name already exists");
-                return View(model);
+                return HttpNotFound();
             }
+
+            courseInDb.Name = course.Name;
+            courseInDb.CategoryId = course.CategoryId;
+            context.SaveChanges();
+
             return RedirectToAction("Index");
+        }
+        //Details
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            var courseInDb = context.Courses.SingleOrDefault(p => p.Id == id);
+
+            if (courseInDb == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(courseInDb);
         }
     }
 }
