@@ -8,20 +8,13 @@
 {
     @Html.HiddenFor(u => u.Id)
     <div class="form-horizontal">
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>@Html.DisplayNameFor(u => u.Name)</dt>
-            <dd>
-                @Html.DisplayFor(u => u.Name)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(u => u.CategoryId)
-            </dt>
-            <dd>
-                @Html.DisplayFor(u => u.CategoryId)
-            </dd>
+        <div class="panel-heading">CourseName:@Model.Name</div>
+        <div class="panel-body">
+            
+            <p>Category:@Model.Category.Name</p>
+            <p>Due Date:@Model.DueDate.ToString("dd/MMM.yyyy")</p>
 
-        </dl>
+        </div>
     </div>}
 
 <p>

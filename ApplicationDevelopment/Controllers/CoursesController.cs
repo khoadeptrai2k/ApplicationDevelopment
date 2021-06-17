@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace ApplicationDevelopment.Controllers
 { 
@@ -20,8 +21,8 @@ namespace ApplicationDevelopment.Controllers
         [Authorize(Roles = "Staff")]
         public ActionResult Index()
         {
-            var courses = context.Courses.ToList();
-            return View(courses.ToList());
+            var courses = context.Courses.Include(p => p.Category).ToList();
+            return View(courses);
         }
 
         //Create Course
@@ -41,18 +42,24 @@ namespace ApplicationDevelopment.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                var viewModel = new CourseCategoryViewModel()
+                {
+                    Course = course,
+                    Categories = context.Categories.ToList()
+                };
+                return View(viewModel);
             }
             //check existed
-            if(context.Courses.Any(p=>p.Name==course.Name
+            if (context.Courses.Any(p=>p.Name==course.Name
                                 && p.CategoryId==course.CategoryId))
             {
-                return View("~/View/Courses/CheckExist.cshtml");
+                return View("~/Views/Courses/CheckExists.cshtml");
             }
             var newCourse = new Course
             {
                 Name = course.Name,
                 CategoryId = course.CategoryId,
+                DueDate = course.DueDate,
             };
             context.Courses.Add(newCourse);
             context.SaveChanges();

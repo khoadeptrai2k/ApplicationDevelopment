@@ -12,17 +12,25 @@
           "Create a new Courses",
           "Create",
           "Courses",
+          null,
           new { @class = "btn btn-primary" }
           )
 </div>
 }
+
 <table class="table">
     <tr>
-        <th>Name</th>
-        <th>Category Name</th>
-        <th>Edit</th>
-        <th>Delete</th>
-        <th>Details</th>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">CategoryName</th>
+
+        @if (User.IsInRole("Staff"))
+        {
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Details</th>
+            
+        }
 
 
     </tr>
@@ -30,20 +38,22 @@
     @foreach (var course in Model)
     {
         <tr>
+            <td scope="row">@course.Id</td>
             <td>@course.Name</td>
             <td>@course.Category.Name</td>
-            @if (User.IsInRole("Staff"))
-            {
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = course.Id })
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "Delete", new { id = course.Id })
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = course.Id })
-            </td>
-            }
+             @if (User.IsInRole("Staff"))
+              {
+                  <td>
+                      @Html.ActionLink("Edit", "Edit", new { id = course.Id })
+                  </td>
+                  <td>
+                      @Html.ActionLink("Delete", "Delete", new { id = course.Id })
+                  </td>
+                  <td>
+                      @Html.ActionLink("Details", "Details", new { id = course.Id })
+                  </td>
+              }
+            
         </tr>
     }
 

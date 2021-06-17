@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace ApplicationDevelopment.Controllers
 {
-    [Authorize]
+
     public class CategoriesController : Controller
     {
         private ApplicationDbContext context;
@@ -31,28 +31,25 @@ namespace ApplicationDevelopment.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "Staff")]
-        public ActionResult Create(Category category)
+        public ActionResult Create(Category model)
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                return View(model);
+            }
+            if(context.Categories.Any(p =>p.Name.Contains(model.Name)))
+            {
+                ModelState.AddModelError("Name", "Category Name Exists.");
+                return View(model);
             }
             var newCategory = new Category
             {
-                Name = category.Name,
-                Description=category.Description
+                Name = model.Name,
+                Description=model.Description
             };
 
             context.Categories.Add(newCategory);
-            try
-            {
-                context.SaveChanges();
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException)
-            {
-                ModelState.AddModelError("", "Category Name already exists");
-                return View();
-            }
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ApplicationDevelopment.Models.TrainerCourse>
+@{
+    ViewBag.Title = "Assign Trainer Course";
+}
+<h2>Index TrainerCourse</h2>
+@if (User.IsInRole("Staff")) 
+{ 
+<div class="form-group">
+    @Html.ActionLink(
+          "Assign Trainer To Courses",
+          "Create",
+          "TrainerCourses",
+          null,
+          new { @class = "btn btn-primary" }
+          ) 
+</div>
+<table class="table">
+    <tr>
+        <th scope="row"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    { 
+
+    }
+</table>
+}
+@if (User.IsInRole("Trainer"))
+{
+<table class="table">
+    <tr>
+        <th scope="row"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+    }
+</table>
+}
+
