@@ -75,5 +75,52 @@ namespace ApplicationDevelopment.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        //Edit
+        [HttpGet]
+        [Authorize(Roles="Staff")]
+        public ActionResult Edit(int id)
+        {
+            var trainercourseInDb = context.TrainerCourses.SingleOrDefault(p => p.Id == id);
+            if (trainercourseInDb==null)
+            {
+                return HttpNotFound();
+            }
+            var viewModel = new TrainerCourseViewModel
+            {
+                TrainerCourse = trainercourseInDb,
+                Courses = context.Courses.ToList(),
+            };
+            return View(viewModel);
+        }
+        [HttpPost]
+        [Authorize(Roles ="Staff")]
+        public ActionResult Edit(TrainerCourse trainerCourse)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            var trainercourseInDb = context.TrainerCourses.SingleOrDefault(p => p.Id == trainerCourse.Id);
+            if (trainercourseInDb == null)
+            {
+                return HttpNotFound();
+            }
+            trainercourseInDb.CourseId = trainerCourse.CourseId;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        //Delete
+        [Authorize(Roles ="Staff")]
+        public ActionResult Delete(int id)
+        {
+            var trainercourseInDb = context.TrainerCourses.SingleOrDefault(p => p.Id == id);
+            if (trainercourseInDb == null)
+            {
+                return HttpNotFound();
+            }
+            context.TrainerCourses.Remove(trainercourseInDb);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -34,6 +34,11 @@
                             <li>@Html.ActionLink("StaffManageUsers","Index","StaffManageUsers")</li>
                             <li>@Html.ActionLink("Categories","Index","Categories")</li>
                             <li>@Html.ActionLink("Courses","Index","Courses")</li>
+                            <li>@Html.ActionLink("AssignTrainerCourses","Index","TrainerCourses")</li>
+                    }
+                    @if (Request.IsAuthenticated && User.IsInRole("Trainer"))
+                    {
+                            <li>@Html.ActionLink("TrainerCourses","Index","TrainerCourses")</li>
                     }
                 </ul>
 
