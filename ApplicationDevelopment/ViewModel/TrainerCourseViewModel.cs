@@ -8,7 +8,7 @@ namespace ApplicationDevelopment.ViewModel
 {
     public class TrainerCourseViewModel
     {
-        public TrainerCourseViewModel TrainerCourse { get;set; }
+        public TrainerCourse TrainerCourse { get;set; }
         public IEnumerable<ApplicationUser> Trainers { get; set; }
         public IEnumerable<Course> Courses { get; set; }
     }

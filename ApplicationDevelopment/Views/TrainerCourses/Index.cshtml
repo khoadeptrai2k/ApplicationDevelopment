@@ -16,11 +16,20 @@
 </div>
 <table class="table">
     <tr>
-        <th scope="row"></th>
+        <th scope="row">@Html.DisplayNameFor(model => model.Trainer)</th>
+        <th scope="row">@Html.DisplayNameFor(model => model.Course)</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
 
     @foreach (var item in Model)
-    { 
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Trainer.UserName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Course.Name)</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.Id })</td>
+        </tr>
 
     }
 </table>
@@ -29,11 +38,16 @@
 {
 <table class="table">
     <tr>
-        <th scope="row"></th>
+        <th scope="row">@Html.DisplayNameFor(model => model.Course)</th>
     </tr>
 
     @foreach (var item in Model)
     {
+        <tr>
+
+            <td>@Html.DisplayFor(modelItem=>item.Course.Name)</td>
+
+        </tr>
 
     }
 </table>

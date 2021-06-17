@@ -1,0 +1,18 @@
+﻿@model ApplicationDevelopment.ViewModel.TrainerCourseViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Assign Trainer Course</h2>
+@using (Html.BeginForm("Create", "TrainerCourses", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(p => p.TrainerCourse.TrainerId)
+        @Html.DropDownListFor(m => m.TrainerCourse.TrainerId, new SelectList(Model.Trainers, "Id", "UserName"), new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.TrainerCourse.Course.Name)
+        @Html.DropDownListFor(m => m.TrainerCourse.CourseId, new SelectList(Model.Courses, "Id", "UserName"), new { @class = "form-control" })
+    </div>
+    <button tupe="submit" class="btn btn-primary">Assign</button>
+}

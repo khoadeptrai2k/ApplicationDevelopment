@@ -334,6 +334,7 @@
     <Content Include="Views\Courses\Edit.cshtml" />
     <Content Include="Views\Courses\CheckExists.cshtml" />
     <Content Include="Views\TrainerCourses\Index.cshtml" />
+    <Content Include="Views\TrainerCourses\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
