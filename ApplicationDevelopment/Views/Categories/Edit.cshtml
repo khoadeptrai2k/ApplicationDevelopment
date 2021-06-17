@@ -1,4 +1,4 @@
-﻿﻿@model ApplicationDevelopment.ViewModels.CourseCategoryViewModel
+﻿﻿@model ApplicationDevelopment.Models.Category
 @{
     ViewBag.Title = "Edit";
 }
@@ -9,7 +9,7 @@
 
 @using (Html.BeginForm("Edit", "Categories", FormMethod.Post))
 {
-    @Html.HiddenFor(p => p.Id)
+@Html.HiddenFor(p =>p.Id)
     <div class="form-group">
         @Html.LabelFor(p => p.Name)
         @Html.EditorFor(p => p.Name, new { htmlAttributes = new { @class = "form-control" } })

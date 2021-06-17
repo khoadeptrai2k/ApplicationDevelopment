@@ -1,20 +1,20 @@
 ﻿﻿﻿@model IEnumerable<ApplicationDevelopment.Models.Course>
 
 @{
-    ViewBag.Title = "Index"; 
+    ViewBag.Title = "Index";
  }
 
 <h2>Course</h2>
 @if (User.IsInRole("Staff"))
 {
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>}
-@using (Html.BeginForm("Index", "Courses", FormMethod.Get))
-{
-    <p>
-
-    </p>
+<div class="form-group">
+    @Html.ActionLink(
+          "Create a new Courses",
+          "Create",
+          "Courses",
+          new { @class = "btn btn-primary" }
+          )
+</div>
 }
 <table class="table">
     <tr>
@@ -32,6 +32,8 @@
         <tr>
             <td>@course.Name</td>
             <td>@course.Category.Name</td>
+            @if (User.IsInRole("Staff"))
+            {
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = course.Id })
             </td>
@@ -39,8 +41,9 @@
                 @Html.ActionLink("Delete", "Delete", new { id = course.Id })
             </td>
             <td>
-                @Html.ActionLink("Details","Details",new { id = course.Id })
+                @Html.ActionLink("Details", "Details", new { id = course.Id })
             </td>
+            }
         </tr>
     }
 

@@ -10,6 +10,7 @@ namespace ApplicationDevelopment.Models
 {
     public class Category
     {
+        [Required]
         public int Id { get; set; }
         [Required]
         [StringLength(255)]

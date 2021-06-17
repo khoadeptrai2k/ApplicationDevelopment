@@ -7,8 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace ApplicationDevelopment.Controllers
-{
-    [Authorize]
+{ 
     public class CoursesController : Controller
     {
         private ApplicationDbContext context;
@@ -17,6 +16,7 @@ namespace ApplicationDevelopment.Controllers
             context = new ApplicationDbContext();
         }
         // GET: Course
+        [HttpGet]
         [Authorize(Roles = "Staff")]
         public ActionResult Index()
         {

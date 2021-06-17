@@ -31,18 +31,19 @@ namespace ApplicationDevelopment.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "Staff")]
-        public ActionResult Create(Category model)
+        public ActionResult Create(Category category)
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View();
             }
-            var category = new Category
+            var newCategory = new Category
             {
-                Name = model.Name,
+                Name = category.Name,
+                Description=category.Description
             };
 
-            context.Categories.Add(category);
+            context.Categories.Add(newCategory);
             try
             {
                 context.SaveChanges();
@@ -50,7 +51,7 @@ namespace ApplicationDevelopment.Controllers
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {
                 ModelState.AddModelError("", "Category Name already exists");
-                return View(model);
+                return View();
             }
             return RedirectToAction("Index");
         }

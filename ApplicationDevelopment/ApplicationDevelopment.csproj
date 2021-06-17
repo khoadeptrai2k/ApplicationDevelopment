@@ -225,6 +225,14 @@
     <Compile Include="Migrations\202106161042484_new.Designer.cs">
       <DependentUpon>202106161042484_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106170857047_1.cs" />
+    <Compile Include="Migrations\202106170857047_1.Designer.cs">
+      <DependentUpon>202106170857047_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106171026505_requiredIdCategory.cs" />
+    <Compile Include="Migrations\202106171026505_requiredIdCategory.Designer.cs">
+      <DependentUpon>202106171026505_requiredIdCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -363,6 +371,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106161042484_new.resx">
       <DependentUpon>202106161042484_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106170857047_1.resx">
+      <DependentUpon>202106170857047_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106171026505_requiredIdCategory.resx">
+      <DependentUpon>202106171026505_requiredIdCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

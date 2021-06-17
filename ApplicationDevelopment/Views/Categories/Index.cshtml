@@ -16,55 +16,36 @@
     )
 </div>
 }
-<div class="row">
-  <div class="col-md-4">
-    <table class="table">
-      <thead class="thead-light">
+    <table class="table table-striped">
         <tr>
-          <th scope="col">Category Name</th>
-          <th scope="col">Category Description</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
           @if (User.IsInRole("Staff"))
           {
-            <th scope="col">Actions</th>
             <th>Edit</th>
             <th>Delete</th>
             <th>Details</th>
           }
         </tr>
-      </thead>
-      <tbody>
         @foreach (var category in Model)
         {
           <tr>
-            <th scope="row">@category.Id</th>
-            <td>@category.Name</td>
-            @if (User.IsInRole("Staff"))
-            {
-              <td>
-                @Html.ActionLink("Details", // <-- Link text
-                       "Details", // <-- Action Method Name
-                       "Categories", // <-- Controller Name
-                       new { id = category.Id }, // <-- Route value
-                       new { @class = "btn btn-info" } // <-- htmlArguments
-                       )
-                @Html.ActionLink("Edit", // <-- Link text
-                                 "Edit", // <-- Action Method Name
-                                 "Categories", // <-- Controller Name
-                                 new { id = category.Id }, // <-- Route value
-                                 new { @class = "btn btn-default" } // <-- htmlArguments
-                               )
-
-                @Html.ActionLink("Delete", // <-- Link text
-                                 "Delete", // <-- Action Method Name
-                                 "Categories", // <-- Controller Name
-                                 new { id = category.Id }, // <-- Route value
-                                 new { @class = "btn btn-danger" } // <-- htmlArguments
-                               )
-              </td>
-            }
+              <th>@category.Name</th>
+              <td>@category.Description</td>
+              @if (User.IsInRole("Staff"))
+              {
+                  <td>
+                      @Html.ActionLink("Edit", "Edit", new { id = category.Id })
+                  </td>
+                  <td>
+                      @Html.ActionLink("Delete", "Delete", new { id = category.Id })
+                  </td>
+                  <td>
+                      @Html.ActionLink("Details", "Details", new { id = category.Id })
+                  </td>
+              }
           </tr>
         }
-      </tbody>
+
     </table>
-  </div>
-</div>
+@Html.ActionLink("Back to home","Index","Home")
