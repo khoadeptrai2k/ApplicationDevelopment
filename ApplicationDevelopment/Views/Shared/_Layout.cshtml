@@ -35,10 +35,15 @@
                             <li>@Html.ActionLink("Categories","Index","Categories")</li>
                             <li>@Html.ActionLink("Courses","Index","Courses")</li>
                             <li>@Html.ActionLink("AssignTrainerCourses","Index","TrainerCourses")</li>
+                            <li>@Html.ActionLink("AssignTraineeCourses","Index","TraineeCourses")</li>
                     }
                     @if (Request.IsAuthenticated && User.IsInRole("Trainer"))
                     {
                             <li>@Html.ActionLink("TrainerCourses","Index","TrainerCourses")</li>
+                    }                    
+                    @if (Request.IsAuthenticated && User.IsInRole("Trainee"))
+                    {
+                            <li>@Html.ActionLink("TraineeCourses","Index","TraineeCourses")</li>
                     }
                 </ul>
 

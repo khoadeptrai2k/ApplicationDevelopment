@@ -243,9 +243,9 @@
     <Compile Include="Migrations\202106171524269_2.Designer.cs">
       <DependentUpon>202106171524269_2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106172002473_TrainerCourse.cs" />
-    <Compile Include="Migrations\202106172002473_TrainerCourse.Designer.cs">
-      <DependentUpon>202106172002473_TrainerCourse.cs</DependentUpon>
+    <Compile Include="Migrations\202106180109196_trainee.cs" />
+    <Compile Include="Migrations\202106180109196_trainee.Designer.cs">
+      <DependentUpon>202106180109196_trainee.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -408,8 +408,8 @@
     <EmbeddedResource Include="Migrations\202106171524269_2.resx">
       <DependentUpon>202106171524269_2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106172002473_TrainerCourse.resx">
-      <DependentUpon>202106172002473_TrainerCourse.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106180109196_trainee.resx">
+      <DependentUpon>202106180109196_trainee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
