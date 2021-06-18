@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ApplicationDevelopment.Models.TraineeCourse>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index TraineeCourse</h2>
+@if (User.IsInRole("Staff"))
+{
+    <div class="form-group">
+        @Html.ActionLink(
+                "Assign Trainee To Courses",
+                "Create",
+                "TraineeCourses",
+                null,
+                new { @class = "btn btn-primary" })
+    </div>
+    <table class="table">
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(model => model.Trainee)</th>
+            <th scope="row">@Html.DisplayNameFor(model => model.Course)</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Trainee.UserName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Course.Name)</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.Id })</td>
+        </tr>
+
+        }
+    </table>
+}
+@if (User.IsInRole("Trainee"))
+{
+    <table class="table">
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(model => model.Course)</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@Html.DisplayFor(modelItem => item.Course.Name)</td>
+
+            </tr>
+
+        }
+    </table>
+}
+
