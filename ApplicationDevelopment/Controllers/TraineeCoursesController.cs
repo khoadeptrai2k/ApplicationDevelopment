@@ -74,5 +74,52 @@ namespace ApplicationDevelopment.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        //Edit
+        [HttpGet]
+        [Authorize(Roles = "Staff")]
+        public ActionResult Edit(int id)
+        {
+            var traineecourseInDb = context.TraineeCourses.SingleOrDefault(p => p.Id == id);
+            if (traineecourseInDb == null)
+            {
+                return HttpNotFound();
+            }
+            var viewModel = new TraineeCourseViewModel
+            {
+                TraineeCourse = traineecourseInDb,
+                Courses = context.Courses.ToList(),
+            };
+            return View(viewModel);
+        }
+        [HttpPost]
+        [Authorize(Roles = "Staff")]
+        public ActionResult Edit(TraineeCourse traineeCourse)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            var traineecourseInDb = context.TraineeCourses.SingleOrDefault(p => p.Id == traineeCourse.Id);
+            if (traineecourseInDb == null)
+            {
+                return HttpNotFound();
+            }
+            traineecourseInDb.CourseId = traineeCourse.CourseId;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        //Delete
+        [Authorize(Roles = "Staff")]
+        public ActionResult Delete(int id)
+        {
+            var traineecourseInDb = context.TraineeCourses.SingleOrDefault(p => p.Id == id);
+            if (traineecourseInDb == null)
+            {
+                return HttpNotFound();
+            }
+            context.TraineeCourses.Remove(traineecourseInDb);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
