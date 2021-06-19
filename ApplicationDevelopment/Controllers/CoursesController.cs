@@ -19,10 +19,15 @@ namespace ApplicationDevelopment.Controllers
         // GET: Course
         [HttpGet]
         [Authorize(Roles = "Staff")]
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            var courses = context.Courses.Include(p => p.Category).ToList();
-            return View(courses);
+            var courses = context.Courses.Include(p => p.Category);
+            if(!String.IsNullOrEmpty(searchString))
+            {
+                courses = courses.Where(p => p.Name.Contains(searchString)
+                || p.Category.Name.Contains(searchString));
+            }
+            return View(courses.ToList());
         }
 
         //Create Course

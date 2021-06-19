@@ -92,6 +92,7 @@ namespace ApplicationDevelopment.Controllers
                 userInDb.Phone = user.Phone;
                 userInDb.WorkingPlace = user.WorkingPlace;
                 userInDb.Email = user.Email;
+                userInDb.Age = user.Age;
 
 
                 context.Users.AddOrUpdate(userInDb);

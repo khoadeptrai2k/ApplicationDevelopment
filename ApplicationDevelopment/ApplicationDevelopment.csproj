@@ -179,73 +179,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106101121460_add4role.cs" />
-    <Compile Include="Migrations\202106101121460_add4role.Designer.cs">
-      <DependentUpon>202106101121460_add4role.cs</DependentUpon>
+    <Compile Include="Migrations\202106180209165_All.cs" />
+    <Compile Include="Migrations\202106180209165_All.Designer.cs">
+      <DependentUpon>202106180209165_All.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106101240467_RegisterAccount.cs" />
-    <Compile Include="Migrations\202106101240467_RegisterAccount.Designer.cs">
-      <DependentUpon>202106101240467_RegisterAccount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106101322376_CategoryCRUD.cs" />
-    <Compile Include="Migrations\202106101322376_CategoryCRUD.Designer.cs">
-      <DependentUpon>202106101322376_CategoryCRUD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106120430085_RegisterUser.cs" />
-    <Compile Include="Migrations\202106120430085_RegisterUser.Designer.cs">
-      <DependentUpon>202106120430085_RegisterUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106122307258_updateregister.cs" />
-    <Compile Include="Migrations\202106122307258_updateregister.Designer.cs">
-      <DependentUpon>202106122307258_updateregister.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106130047196_staff,trainer,trainee model.cs" />
-    <Compile Include="Migrations\202106130047196_staff,trainer,trainee model.Designer.cs">
-      <DependentUpon>202106130047196_staff,trainer,trainee model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106130314397_loginwithUserName.cs" />
-    <Compile Include="Migrations\202106130314397_loginwithUserName.Designer.cs">
-      <DependentUpon>202106130314397_loginwithUserName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106130443400_CRUDuser.cs" />
-    <Compile Include="Migrations\202106130443400_CRUDuser.Designer.cs">
-      <DependentUpon>202106130443400_CRUDuser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106131933062_resetpass.cs" />
-    <Compile Include="Migrations\202106131933062_resetpass.Designer.cs">
-      <DependentUpon>202106131933062_resetpass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106142036598_Course.cs" />
-    <Compile Include="Migrations\202106142036598_Course.Designer.cs">
-      <DependentUpon>202106142036598_Course.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106151952524_descriptionCategory.cs" />
-    <Compile Include="Migrations\202106151952524_descriptionCategory.Designer.cs">
-      <DependentUpon>202106151952524_descriptionCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106161042484_new.cs" />
-    <Compile Include="Migrations\202106161042484_new.Designer.cs">
-      <DependentUpon>202106161042484_new.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106170857047_1.cs" />
-    <Compile Include="Migrations\202106170857047_1.Designer.cs">
-      <DependentUpon>202106170857047_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106171026505_requiredIdCategory.cs" />
-    <Compile Include="Migrations\202106171026505_requiredIdCategory.Designer.cs">
-      <DependentUpon>202106171026505_requiredIdCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106171452346_foreignkeycategory.cs" />
-    <Compile Include="Migrations\202106171452346_foreignkeycategory.Designer.cs">
-      <DependentUpon>202106171452346_foreignkeycategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106171524269_2.cs" />
-    <Compile Include="Migrations\202106171524269_2.Designer.cs">
-      <DependentUpon>202106171524269_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106180109196_trainee.cs" />
-    <Compile Include="Migrations\202106180109196_trainee.Designer.cs">
-      <DependentUpon>202106180109196_trainee.cs</DependentUpon>
+    <Compile Include="Migrations\202106192020238_last.cs" />
+    <Compile Include="Migrations\202106192020238_last.Designer.cs">
+      <DependentUpon>202106192020238_last.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -360,56 +300,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106101121460_add4role.resx">
-      <DependentUpon>202106101121460_add4role.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106180209165_All.resx">
+      <DependentUpon>202106180209165_All.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106101240467_RegisterAccount.resx">
-      <DependentUpon>202106101240467_RegisterAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106101322376_CategoryCRUD.resx">
-      <DependentUpon>202106101322376_CategoryCRUD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106120430085_RegisterUser.resx">
-      <DependentUpon>202106120430085_RegisterUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106122307258_updateregister.resx">
-      <DependentUpon>202106122307258_updateregister.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106130047196_staff,trainer,trainee model.resx">
-      <DependentUpon>202106130047196_staff,trainer,trainee model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106130314397_loginwithUserName.resx">
-      <DependentUpon>202106130314397_loginwithUserName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106130443400_CRUDuser.resx">
-      <DependentUpon>202106130443400_CRUDuser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106131933062_resetpass.resx">
-      <DependentUpon>202106131933062_resetpass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106142036598_Course.resx">
-      <DependentUpon>202106142036598_Course.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106151952524_descriptionCategory.resx">
-      <DependentUpon>202106151952524_descriptionCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106161042484_new.resx">
-      <DependentUpon>202106161042484_new.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106170857047_1.resx">
-      <DependentUpon>202106170857047_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106171026505_requiredIdCategory.resx">
-      <DependentUpon>202106171026505_requiredIdCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106171452346_foreignkeycategory.resx">
-      <DependentUpon>202106171452346_foreignkeycategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106171524269_2.resx">
-      <DependentUpon>202106171524269_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106180109196_trainee.resx">
-      <DependentUpon>202106180109196_trainee.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106192020238_last.resx">
+      <DependentUpon>202106192020238_last.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

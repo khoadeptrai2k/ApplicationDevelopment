@@ -15,7 +15,6 @@
             <tr>
                 <th>UserName</th>
                 <th>Name</th>
-                <th>Roles</th>
                 <th>Email</th>
                 <th>Edit</th>   
                 <th>Delete</th>   
@@ -27,7 +26,6 @@
                 <tr>
                     <td>@user.UserName</td>
                     <td>@user.Name</td>
-                    <td>@user.Roles</td>
                     <td>@user.Email</td>
                     <td>@Html.ActionLink("Edit", "Edit", new { id = user.Id })</td>
                     <td>@Html.ActionLink("Delete", "Delete", new { id = user.Id })</td>

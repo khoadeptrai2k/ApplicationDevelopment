@@ -68,8 +68,8 @@ namespace ApplicationDevelopment.Models
         public string UserName { get; set; }        
         
         [Required]
-        [Display(Name = "FullName")]
-        public string FullName { get; set; }
+        [Display(Name = "Name")]
+        public string Name { get; set; }
 
         [Required]
         [Display(Name = "UserRoles")]

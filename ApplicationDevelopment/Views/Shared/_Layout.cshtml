@@ -27,7 +27,6 @@
                     {
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("ManageUsers", "UsersWithRoles", "ManageUsers")</li>
-                            <li></li>
                     }
                     @if (Request.IsAuthenticated && User.IsInRole("Staff"))
                     {

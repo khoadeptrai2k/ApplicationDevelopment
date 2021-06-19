@@ -7,13 +7,13 @@ namespace ApplicationDevelopment.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class foreignkeycategory : IMigrationMetadata
+    public sealed partial class All : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(foreignkeycategory));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(All));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106171452346_foreignkeycategory"; }
+            get { return "202106180209165_All"; }
         }
         
         string IMigrationMetadata.Source

@@ -17,9 +17,13 @@ namespace ApplicationDevelopment.Controllers
         }
         // GET: Categories
         [Authorize(Roles = "Staff")]
-        public ActionResult Index()
+        public ActionResult Index(string searchCategory)
         {
             var categories = context.Categories.ToList();
+            if (!String.IsNullOrEmpty(searchCategory))
+            {
+                categories = categories.FindAll(p => p.Name.Contains(searchCategory));
+            }
             return View(categories);
         }
 
