@@ -1,4 +1,4 @@
-﻿@model ApplicationDevelopment.Models.ApplicationUser
+﻿﻿@model ApplicationDevelopment.Models.ApplicationUser
 @{
     ViewBag.Title = "Edit";
 }
@@ -6,7 +6,7 @@
 <h2>Edit</h2>
 
 @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-@using (Html.BeginForm("Edit", "StaffManageUsers", FormMethod.Post))
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
 {
     @Html.HiddenFor(u => u.Id)
     <div class="form-horizontal">
@@ -17,23 +17,15 @@
             @Html.EditorFor(u => u.Name, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(u => u.Name, "", new { @class = "text-danger" })
         </div>
-        <div class="form-group">
-            @Html.LabelFor(u => u.UserName)
-            @Html.EditorFor(u => u.UserName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(u => u.UserName, "", new { @class = "text-danger" })
+            @Html.LabelFor(u => u.WorkingPlace)
+            @Html.EditorFor(u => u.WorkingPlace, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(u => u.WorkingPlace, "", new { @class = "text-danger" })
         </div>
-
         <div class="form-group">
             @Html.LabelFor(u => u.Email)
             @Html.EditorFor(u => u.Email, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(u => u.Email, "", new { @class = "text-danger" })
         </div>
-        <div class="form-group">
-            @Html.LabelFor(u => u.WorkingPlace)
-            @Html.EditorFor(u => u.WorkingPlace, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(u => u.WorkingPlace, "", new { @class = "text-danger" })
-        </div>
-
         <div class="form-group">
             @Html.LabelFor(u => u.Phone)
             @Html.EditorFor(u => u.Phone, new { htmlAttributes = new { @class = "form-control" } })
@@ -45,7 +37,8 @@
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
-    </div>}
+}
 <div>
-    @Html.ActionLink("Back to List", "Index","StaffManagerUsers")
+    @Html.ActionLink("Back to List", "About")
 </div>
+

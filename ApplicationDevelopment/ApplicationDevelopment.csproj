@@ -187,6 +187,18 @@
     <Compile Include="Migrations\202106192020238_last.Designer.cs">
       <DependentUpon>202106192020238_last.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106200120146_updateTrainerTrainee.cs" />
+    <Compile Include="Migrations\202106200120146_updateTrainerTrainee.Designer.cs">
+      <DependentUpon>202106200120146_updateTrainerTrainee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106200121499_111.cs" />
+    <Compile Include="Migrations\202106200121499_111.Designer.cs">
+      <DependentUpon>202106200121499_111.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106200225333_FullNameToName.cs" />
+    <Compile Include="Migrations\202106200225333_FullNameToName.Designer.cs">
+      <DependentUpon>202106200225333_FullNameToName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -282,6 +294,8 @@
     <Content Include="Views\TrainerCourses\Edit.cshtml" />
     <Content Include="Views\TraineeCourses\Create.cshtml" />
     <Content Include="Views\TraineeCourses\Edit.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -305,6 +319,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106192020238_last.resx">
       <DependentUpon>202106192020238_last.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106200120146_updateTrainerTrainee.resx">
+      <DependentUpon>202106200120146_updateTrainerTrainee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106200121499_111.resx">
+      <DependentUpon>202106200121499_111.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106200225333_FullNameToName.resx">
+      <DependentUpon>202106200225333_FullNameToName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

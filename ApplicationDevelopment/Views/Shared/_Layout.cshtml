@@ -39,10 +39,12 @@
                     @if (Request.IsAuthenticated && User.IsInRole("Trainer"))
                     {
                             <li>@Html.ActionLink("TrainerCourses","Index","TrainerCourses")</li>
+                            <li>@Html.ActionLink("Edit Profile","About","Home")</li>
                     }                    
                     @if (Request.IsAuthenticated && User.IsInRole("Trainee"))
                     {
                             <li>@Html.ActionLink("TraineeCourses","Index","TraineeCourses")</li>
+                            <li>@Html.ActionLink("Profile","About","Home")</li>
                     }
                 </ul>
 

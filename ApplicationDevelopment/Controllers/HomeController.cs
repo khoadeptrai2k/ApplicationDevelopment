@@ -12,10 +12,10 @@ namespace ApplicationDevelopment.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext _context;
+        private ApplicationDbContext context;
         public HomeController()
         {
-            _context = new ApplicationDbContext();
+            context = new ApplicationDbContext();
         }
         public ActionResult Index()
         {
@@ -64,8 +64,8 @@ namespace ApplicationDevelopment.Controllers
                 currentUser.Email = user.Email;
 
 
-                _context.Users.AddOrUpdate(currentUser);
-                _context.SaveChanges();
+                context.Users.AddOrUpdate(currentUser);
+                context.SaveChanges();
 
                 return RedirectToAction("About");
             }
