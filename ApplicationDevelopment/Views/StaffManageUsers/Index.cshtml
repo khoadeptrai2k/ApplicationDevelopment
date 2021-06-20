@@ -17,6 +17,7 @@
             <th>Role</th>
             <th>Edit</th>
             <th>Delete</th>
+            <th>ResetPass</th>
         </tr>
         @foreach (var users in Model)
         {
@@ -28,6 +29,7 @@
                     <td>@users.Email</td>
                     <td>@Html.ActionLink("Edit", "Edit", new { id = users.UserId })</td>
                     <td>@Html.ActionLink("Delete", "Delete", new { id = users.UserId })</td>
+                    <td>@Html.ActionLink("ResetPass","ResetPass", new { id = users.UserId })</td>
                 }
             </tr>
         }
